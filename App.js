@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Home, Products } from './src/screens'
+import { Details, Home, Products } from './src/screens'
+
+import fonts from './src/global/fonts'
+import { useFonts } from 'expo-font'
+import { useState } from 'react'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  return <Products category={'smartphones'} />
+  const [fontsLoaded] = useFonts(fonts)
+  const [categorySelected, setCategorySelected] = useState('')
+  const [productSelected, setProductSelected] = useState()
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (!fontsLoaded) {
+    return null
+  }
+
+  return productSelected ? (
+    <Details product={productSelected} />
+  ) : categorySelected ? (
+    <Products
+      category={categorySelected}
+      setProductSelected={setProductSelected}
+    />
+  ) : (
+    <Home setCategorySelected={setCategorySelected} />
+  )
+}
