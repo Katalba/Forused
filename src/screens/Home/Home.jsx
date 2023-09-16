@@ -1,20 +1,3 @@
-import dataCategories from '../../data/dataCategories'
-import styles from './Home.style'
+import { FlatList, View } from 'react-native';
 
-const Home = ({ setCategorySelected }) => {
-  return (
-    <View style={styles.container}>
-      <Header title={'Categories'} />
-      <FlatList
-        data={dataCategories}
-        keyExtractor={category => category}
-        renderItem={({ item }) => (
-          <CategoryItem
-            category={item}
-            setCategorySelected={setCategorySelected}
-          />
-        )}
-      />
-    </View>
-  )
-}
+
