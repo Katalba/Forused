@@ -35,7 +35,7 @@ const Products = ({ category, setProductSelected }) => {
           data={arrProducts}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => setProductSelected(item)}>
-              <Text>{item.title}</Text>
+              <Text style={styles.text}>{item.title}</Text>
             </TouchableOpacity>
           )}
           keyExtractor={item => item.id}

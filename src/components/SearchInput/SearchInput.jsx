@@ -25,10 +25,10 @@ const SearchInput = ({ onSearch }) => {
         placeholder='Search product'
       />
       <Pressable onPress={search}>
-        <AntDesign name='search1' size={25} color='black' />
+        <AntDesign name='search1' size={25} color='white' />
       </Pressable>
       <Pressable onPress={clearInput}>
-        <AntDesign name='closecircleo' size={25} color='black' />
+        <AntDesign name='closecircleo' size={25} color='white' />
       </Pressable>
     </View>
   )

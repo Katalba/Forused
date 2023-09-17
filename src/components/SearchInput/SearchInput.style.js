@@ -7,17 +7,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '90%',
-    paddingTop: 10
+    padding: 10
   },
   input: {
-    color: 'white',
-    backgroundColor: colors.secondary,
+    color: 'black',
+    backgroundColor: '#fff',
     borderRadius: 8,
     padding: 10,
     borderWidth: 1,
-    borderColor: colors.primary,
+    borderColor: colors.secondary,
     width: '80%',
-    fontSize: 20
+    fontSize: 22,
+    fontFamily: 'texto'
   }
 
 })

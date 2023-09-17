@@ -3,14 +3,14 @@ import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.button,
     height: 80,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    fontSize: 30,
+    fontSize: 32,
     fontFamily: 'titulo'
   }
 
