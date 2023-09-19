@@ -1,10 +1,24 @@
 export default [
-  'Sofa',
-  'Desk',
-  'Desk Chair',
-  'Bookshelf',
-  'Dining Table',
-  'Nightstand',
-  'Tv Stand'
+  {
+    title: 'Sofa'
+  },
+  {
+    title: 'Desk'
+  },
+  {
+    title: 'Desk Chair'
+  },
+  {
+    title: 'Bookshelf'
+  },
+  {
+    title: 'Dining Table'
+  },
+  {
+    title: 'Nightstand'
+  },
+  {
+    title: 'Tv Stand'
+  }
 
 ]
