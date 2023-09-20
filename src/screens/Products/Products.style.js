@@ -4,15 +4,26 @@ import { colors } from '../../constants/colors'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.secondary
+    backgroundColor: colors.background
   },
   listContainer: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 30,
     flex: 1,
-    marginTop: 15
+    marginTop: 15,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  cardContainer: {
+    width: 250,
+    height: 350
+  },
+  cardImage: {
+    width: 250,
+    height: 250,
+    resizeMode: 'cover'
   },
   text: {
-    color: '#fff',
+    color: '#000',
     fontSize: 22,
     fontFamily: 'texto'
   }

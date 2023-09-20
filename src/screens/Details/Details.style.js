@@ -5,18 +5,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF'
   },
+  containerImage: {
+    alignItems: 'center',
+    justifyContent: 'center'
+
+  },
   image: {
-    height: '50%',
-    width: '90%'
+    height: '70%',
+    width: '90%',
+    resizeMode: ('stretch')
+  },
+  containerText: {
+    padding: 30
   },
   title: {
-    fontSize: 30,
-    marginVertical: 15,
+    fontSize: 35,
     fontFamily: 'titulo'
   },
   price: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 27,
     marginVertical: 15
   }
 })

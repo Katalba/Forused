@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
           data={dataCategories}
           keyExtractor={category => category.title}
           renderItem={({ item }) => (
-            <CategoryItem category={item.title} navigation={navigation} />
+            <CategoryItem category={item.title} navigation={navigation} image={item.image} />
           )}
         />
       </View>

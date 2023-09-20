@@ -3,15 +3,20 @@ import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.button,
+    backgroundColor: colors.secondary,
     height: 80,
     width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   },
   text: {
     fontSize: 32,
-    fontFamily: 'titulo'
+    fontFamily: 'subtitulo',
+    color: 'white'
+  },
+  iconos: {
+    color: 'white'
   }
 
 })
