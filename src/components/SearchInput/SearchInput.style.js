@@ -6,21 +6,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '90%',
-    padding: 10
+    width: '100%',
+    padding: 20
   },
   input: {
     color: 'black',
-    backgroundColor: '#fff',
+    backgroundColor: colors.background,
     borderRadius: 8,
     padding: 10,
     borderWidth: 1,
-    borderColor: colors.secondary,
+    borderColor: 'black',
     width: '80%',
-    fontSize: 22,
-    fontFamily: 'texto'
+    fontSize: 24
   }
-
 })
 
 export default styles
