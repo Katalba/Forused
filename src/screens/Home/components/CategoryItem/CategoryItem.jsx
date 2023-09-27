@@ -10,6 +10,7 @@ const CategoryItem = ({ category, navigation, image }) => {
         style={styles.container}
       >
         <Image source={{ uri: image }} style={styles.image} />
+        <View style={styles.overlay} />
         <Text style={styles.text}>{category}</Text>
       </Pressable>
     </View>

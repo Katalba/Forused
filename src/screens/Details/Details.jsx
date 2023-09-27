@@ -3,6 +3,7 @@ import { Image, Text, View } from 'react-native'
 import { Header } from '../../components'
 import React from 'react'
 import styles from './Details.style'
+import Counter from '../../components/Counter/Counter'
 
 const Details = ({ route }) => {
   const { product } = route.params
@@ -15,6 +16,7 @@ const Details = ({ route }) => {
       <View style={styles.containerText}>
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.price}>{`$ ${product.price}`}</Text>
+        <Counter />
       </View>
     </View>
   )

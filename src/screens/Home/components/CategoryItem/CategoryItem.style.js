@@ -11,19 +11,28 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     borderRadius: 20,
     overflow: 'hidden',
-    height: 250,
-    width: '90%'
+    height: 150,
+    width: '98%',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   text: {
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: 'titulo',
-    color: '#000',
-    top: '-60%',
-    left: '50%'
+    color: '#fff',
+    position: 'absolute',
+    zIndex: 10
   },
   image: {
-    height: 300,
-    resizeMode: 'stretch'
+    height: 250,
+    resizeMode: 'stretch',
+    shadowColor: 'white',
+    position: 'absolute',
+    zIndex: 1
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(52, 52, 52, 0.8)'
   }
 })
 

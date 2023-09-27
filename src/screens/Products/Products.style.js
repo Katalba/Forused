@@ -34,11 +34,13 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5
+
   },
   cardImage: {
     width: 250,
     height: 250,
     resizeMode: 'cover'
+
   },
   text: {
     color: '#000',

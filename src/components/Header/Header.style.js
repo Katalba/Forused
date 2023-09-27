@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.secondary,
-    height: 80,
+    backgroundColor: 'transparent',
     width: '100%',
     alignItems: 'center',
     flexDirection: 'row',
@@ -13,7 +11,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     fontFamily: 'subtitulo',
-    color: 'white'
+    color: 'black'
   },
   iconos: {
     color: 'white'
