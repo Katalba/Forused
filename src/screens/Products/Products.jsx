@@ -1,4 +1,4 @@
-import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View, Image, SafeAreaView } from 'react-native'
 import { Header, SearchInput } from '../../components'
 import React, { useEffect, useState } from 'react'
 
@@ -28,7 +28,7 @@ const Products = ({ navigation, route }) => {
   }, [category, keyword])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title={category} />
       <SearchInput onSearch={setKeyword} />
       <View style={styles.listContainer}>
@@ -46,7 +46,7 @@ const Products = ({ navigation, route }) => {
           keyExtractor={item => item.id}
         />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

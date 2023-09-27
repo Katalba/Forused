@@ -2,31 +2,29 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red'
+    backgroundColor: ''
   },
   counterContainer: {
     flexDirection: 'row',
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     justifyContent: 'space-between',
-    height: 50
+    height: 5
   },
   counterButtons: {
-    backgroundColor: 'blue',
-    width: '33%',
+    backgroundColor: 'black',
+    width: '5%',
     justifyContent: 'center',
     alignItems: 'center'
   },
   signs: {
-    fontSize: 35
+    fontSize: 10
   },
   input: {
     backgroundColor: 'white',
-    width: '80%',
+    width: '15%',
     height: 30
   },
   inputContaienr: {
-    flexDirection: 'row',
-    marginVertical: 10,
     padding: 10
   }
 })
