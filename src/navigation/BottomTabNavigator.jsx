@@ -24,7 +24,7 @@ function BottomTabNavigator () {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
-              <SimpleLineIcons style={styles.iconos} name='menu' size={25} color='white' />
+              <SimpleLineIcons style={styles.iconos} name='home' size={25} color='white' />
             </View>
           )
         }}
