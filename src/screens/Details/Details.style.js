@@ -7,21 +7,24 @@ const styles = StyleSheet.create({
   },
   containerImage: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginVertical: 10
 
   },
   image: {
-    height: '70%',
-    width: '90%',
+    width: '100%',
+    aspectRatio: 1,
     resizeMode: ('stretch')
   },
   containerText: {
-    padding: 30
+    marginVertical: 10,
+    paddingHorizontal: 10
 
   },
   title: {
     fontSize: 35,
-    fontFamily: 'titulo'
+    fontFamily: 'titulo',
+    paddingHorizontal: 10
   },
   price: {
     fontSize: 27,

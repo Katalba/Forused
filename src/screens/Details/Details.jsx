@@ -1,6 +1,6 @@
 import { Image, Text, View, SafeAreaView } from 'react-native'
 
-import { Counter, Header } from '../../components'
+import { Counter } from '../../components'
 import React from 'react'
 import styles from './Details.style'
 
@@ -9,7 +9,6 @@ const Details = ({ route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Detail Product' />
       <View style={styles.containerImage}>
         <Image style={styles.image} source={{ uri: product.image }} />
       </View>

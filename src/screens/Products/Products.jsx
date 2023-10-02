@@ -34,6 +34,7 @@ const Products = ({ navigation, route }) => {
       <View style={styles.listContainer}>
         <FlatList
           data={arrProducts}
+          numColumns={2}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate('Details', { product: item })}
@@ -45,6 +46,7 @@ const Products = ({ navigation, route }) => {
           )}
           keyExtractor={item => item.id}
         />
+
       </View>
     </SafeAreaView>
   )

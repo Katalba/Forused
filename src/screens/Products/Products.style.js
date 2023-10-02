@@ -4,26 +4,26 @@ import { colors } from '../../constants/colors'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
-    width: '100%'
+    backgroundColor: colors.background
   },
   listContainer: {
     paddingHorizontal: 30,
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 15,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    margin: 5,
     width: '100%'
   },
   cardContainer: {
-    width: '45%',
+    width: '48%',
     height: 350,
+    margin: 5,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: 'transparent',
     backgroundColor: 'white',
-    margin: 10,
     overflow: 'hidden',
     shadowColor: '#000',
     shadowOffset: {
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
 
   },
   cardImage: {
-    width: 250,
-    height: 250,
+    width: '100%',
+    aspectRatio: 1,
     resizeMode: 'cover'
 
   },
