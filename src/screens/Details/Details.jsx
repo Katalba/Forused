@@ -1,5 +1,4 @@
 import { Image, Text, View, SafeAreaView } from 'react-native'
-
 import { Counter } from '../../components'
 import React from 'react'
 import styles from './Details.style'

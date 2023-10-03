@@ -2,29 +2,37 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    width: '50',
+    height: '50'
   },
   counterContainer: {
     flexDirection: 'row',
     backgroundColor: 'white',
     justifyContent: 'space-between',
-    height: 50
+    height: 20
   },
   counterButtons: {
     backgroundColor: 'black',
-    width: '33%',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 30,
+    height: 30
   },
   signs: {
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 35
+    fontSize: 20
+  },
+  numberContainer: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   number: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 35
+    fontSize: 13
   }
 })
 

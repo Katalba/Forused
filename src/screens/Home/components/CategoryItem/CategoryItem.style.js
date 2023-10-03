@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontFamily: 'titulo',
+    fontFamily: 'subtitulo',
     color: '#fff',
     position: 'absolute',
-    zIndex: 10
+    zIndex: 10,
+    letterSpacing: 3,
+    textTransform: 'uppercase'
   },
   image: {
     height: 250,

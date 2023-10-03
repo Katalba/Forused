@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     marginTop: 15,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: '100%'
+    width: '100%',
+    marginBottom: 30
   },
   cardContainer: {
     width: '48%',
@@ -44,8 +45,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#000',
-    fontSize: 24,
-    fontFamily: 'subtitulo'
+    fontSize: 17,
+    fontFamily: 'subtitulo',
+    letterSpacing: 1,
+    margin: 15
   }
 
 })

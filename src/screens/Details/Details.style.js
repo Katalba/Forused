@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   containerImage: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10
+    marginBottom: 30
 
   },
   image: {
@@ -17,18 +17,22 @@ const styles = StyleSheet.create({
     resizeMode: ('stretch')
   },
   containerText: {
-    marginVertical: 10,
-    paddingHorizontal: 10
-
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15
   },
   title: {
     fontSize: 35,
-    fontFamily: 'titulo',
-    paddingHorizontal: 10
+    fontFamily: 'subtitulo',
+    paddingHorizontal: 15,
+    letterSpacing: 1
   },
   price: {
-    fontSize: 27,
-    marginVertical: 15
+    fontSize: 25,
+    fontFamily: 'titulo',
+    marginVertical: 15,
+    letterSpacing: 2
   }
 })
 

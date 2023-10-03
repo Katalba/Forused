@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly'
   },
   text: {
-    fontSize: 32,
+    fontSize: 20,
     fontFamily: 'subtitulo',
-    color: 'black'
+    color: 'grey',
+    letterSpacing: 1
   },
   iconos: {
     color: 'white'

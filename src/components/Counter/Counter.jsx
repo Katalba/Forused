@@ -17,7 +17,9 @@ const Counter = () => {
           >
             <Text style={styles.signs}>-</Text>
           </Pressable>
-          <Text style={styles.number}>{counter}</Text>
+          <View style={styles.numberContainer}>
+            <Text style={styles.number}>{counter}</Text>
+          </View>
           <Pressable
             onPress={() => dispatch(increment())}
             style={styles.counterButtons}
@@ -26,9 +28,7 @@ const Counter = () => {
           </Pressable>
         </View>
       </View>
-      <Pressable>
-        <Text>add to cart</Text>
-      </Pressable>
+
     </>
   )
 }
