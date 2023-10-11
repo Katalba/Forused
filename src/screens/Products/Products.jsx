@@ -2,51 +2,47 @@ import { FlatList, Text, TouchableOpacity, View, Image, SafeAreaView } from 'rea
 import { Header, SearchInput } from '../../components'
 import React, { useEffect, useState } from 'react'
 
-import allProducts from '../../data/products'
 import styles from './Products.style'
+import { useSelector } from 'react-redux'
+import { useGetProductsByCategoryQuery } from '../../services/shopApi'
 
-const Products = ({ navigation, route }) => {
-  const [arrProducts, setArrProducts] = useState([])
-  const [keyword, setKeyword] = useState('')
-  const { category } = route.params
+const Products = ({ navigation }) => {
+  const category = useSelector(state => state.shop.categorySelected)
+  // const [setArrProducts] = useState([])
+  const [setKeyword] = useState('') // añadir luego el keyword para el filtrado por búsqueda
+  const { data, isLoading } = useGetProductsByCategoryQuery(category)
 
   useEffect(() => {
-    if (category) {
-      const products = allProducts.filter(
-        product => product.category === category
-      )
-      const productsFiltered = products.filter(product =>
-        product.title.includes(keyword)
-      )
-      setArrProducts(productsFiltered)
-    } else {
-      const productsFiltered = allProducts.filter(product =>
-        product.title.includes(keyword)
-      )
-      setArrProducts(productsFiltered)
-    }
-  }, [category, keyword])
+    console.log(data)
+    // if (data) {
+    //   const productsFiltered = data.filter(product =>
+    //     product.title.includes(keyword)
+    //   )
+    //   setArrProducts(productsFiltered)
+    // }
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
       <Header title={category} />
       <SearchInput onSearch={setKeyword} />
       <View style={styles.listContainer}>
-        <FlatList
-          data={arrProducts}
-          numColumns={2}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Details', { product: item })}
-              style={styles.cardContainer}
-            >
-              <Image style={styles.cardImage} source={{ uri: item.image }} />
-              <Text style={styles.text}>{item.title}</Text>
-            </TouchableOpacity>
-          )}
-          keyExtractor={item => item.id}
-        />
-
+        {!isLoading && (
+          <FlatList
+            data={Object.values(data)}
+            numColumns={2}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Details', { product: item })}
+                style={styles.cardContainer}
+              >
+                <Image style={styles.cardImage} source={{ uri: item.image }} />
+                <Text style={styles.text}>{item.title}</Text>
+              </TouchableOpacity>
+            )}
+            keyExtractor={item => item.id}
+          />
+        )}
       </View>
     </SafeAreaView>
   )

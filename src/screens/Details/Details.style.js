@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -33,7 +34,24 @@ const styles = StyleSheet.create({
     fontFamily: 'titulo',
     marginVertical: 15,
     letterSpacing: 2
+  },
+  button: {
+    width: '40%',
+    alignSelf: 'center',
+    backgroundColor: colors.button,
+    padding: 15,
+    borderRadius: 100,
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 30
+
+  },
+  buttonText: {
+    fontFamily: 'titulo',
+    textTransform: 'uppercase',
+    fontSize: 16
   }
+
 })
 
 export default styles

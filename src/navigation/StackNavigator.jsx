@@ -1,4 +1,4 @@
-import { Details, Home, Products } from '../screens'
+import { Cart, Details, Home, Products } from '../screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { colors } from '../constants/colors'
 // import { Pressable } from 'react-native'
@@ -39,6 +39,17 @@ const StackNavigator = () => {
       <Stack.Screen
         name='Details'
         component={Details}
+        options={{
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 20
+          },
+          headerTintColor: colors.button
+        }}
+      />
+      <Stack.Screen
+        name='Shopping Bag'
+        component={Cart}
         options={{
           headerTitleAlign: 'center',
           headerTitleStyle: {

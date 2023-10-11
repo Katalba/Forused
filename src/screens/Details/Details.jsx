@@ -1,10 +1,17 @@
-import { Image, Text, View, SafeAreaView } from 'react-native'
+import { Image, Text, View, SafeAreaView, Pressable } from 'react-native'
 import { Counter } from '../../components'
 import React from 'react'
 import styles from './Details.style'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../features/cart/cartSlice'
 
 const Details = ({ route }) => {
   const { product } = route.params
+  const dispatch = useDispatch()
+
+  const handleAddToCart = () => {
+    dispatch(addItem({ ...product }))
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -17,6 +24,9 @@ const Details = ({ route }) => {
         <Text style={styles.price}>{`$ ${product.price}`}</Text>
         <Counter />
       </View>
+      <Pressable style={styles.button} onPress={handleAddToCart}>
+        <Text style={styles.buttonText}>Add to cart</Text>
+      </Pressable>
     </SafeAreaView>
   )
 }

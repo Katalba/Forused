@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 
 import CartNavigator from './CartNavigator'
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
@@ -22,8 +22,8 @@ function BottomTabNavigator () {
         name='Shop'
         component={StackNavigator}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={focused ? styles.iconContainer : null}>
+          tabBarIcon: () => (
+            <View style={styles.iconContainer}>
               <SimpleLineIcons style={styles.iconos} name='home' size={25} color='white' />
             </View>
           )
@@ -33,9 +33,10 @@ function BottomTabNavigator () {
         name='CartNav'
         component={CartNavigator}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={focused ? styles.iconContainer : null}>
+          tabBarIcon: () => (
+            <View style={styles.iconContainer}>
               <SimpleLineIcons style={styles.iconos} name='bag' size={25} color='white' />
+              <Text style={{ marginLeft: 5, fontWeight: '500', color: 'white' }}>1</Text>
             </View>
           )
         }}
@@ -54,10 +55,10 @@ const styles = StyleSheet.create({
     height: 60
   },
   iconContainer: {
-    backgroundColor: colors.button,
-    borderRadius: 15,
+
     padding: 8,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 })
