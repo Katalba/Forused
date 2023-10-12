@@ -26,6 +26,28 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 30,
     backgroundColor: '#fff'
+  },
+  forgotPassword: {
+    color: '#fff',
+    fontSize: 14,
+    marginTop: 20
+  },
+  touchContainer: {
+    width: '30%',
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.button,
+    borderRadius: 25,
+    padding: 10,
+    marginTop: 50
+  },
+  button: {
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  blurContainer: {
+
   }
 
 })
