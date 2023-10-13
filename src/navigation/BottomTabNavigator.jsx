@@ -5,6 +5,7 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
 import StackNavigator from './StackNavigator'
 import { colors } from '../constants/colors'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import ProfileNavigator from './ProfileNavigator'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -18,6 +19,17 @@ function BottomTabNavigator () {
         tabBarStyle: styles.tabBar
       }}
     >
+      <BottomTab.Screen
+        name='Profile'
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: () => (
+            <View style={styles.iconContainer}>
+              <SimpleLineIcons style={styles.iconos} name='user' size={25} color='white' />
+            </View>
+          )
+        }}
+      />
       <BottomTab.Screen
         name='Shop'
         component={StackNavigator}
@@ -43,6 +55,7 @@ function BottomTabNavigator () {
       />
 
     </BottomTab.Navigator>
+
   )
 }
 
