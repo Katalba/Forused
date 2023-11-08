@@ -6,6 +6,7 @@ import shopSlice from '../features/shop/ShopSlice'
 import cartSlice from '../features/cart/cartSlice'
 import { authApi } from '../services/authApi'
 import authSlice from '../features/auth/authSlice'
+import billSlice from '../features/bill/billSlice'
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,8 @@ const store = configureStore({
     shop: shopSlice,
     cart: cartSlice,
     auth: authSlice,
+    bill: billSlice,
+
     [shopApi.reducerPath]: shopApi.reducer,
     [authApi.reducerPath]: authApi.reducer
   },

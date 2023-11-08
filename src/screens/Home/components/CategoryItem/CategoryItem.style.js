@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   contentCategories: {
-    width: '100%',
+    width: '45%',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -31,10 +31,6 @@ const styles = StyleSheet.create({
     shadowColor: 'white',
     position: 'absolute',
     zIndex: 1
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(52, 52, 52, 0.8)'
   }
 })
 

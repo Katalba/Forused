@@ -8,13 +8,11 @@ import { fetchSession } from '../db'
 import { useGetProfileImageQuery } from '../services/shopApi'
 
 const MainNavigator = () => {
-  // const [user, setuser] = useState(null)
   const { user, localId } = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const { data } = useGetProfileImageQuery(localId)
 
   useEffect(() => {
-    console.log('Main navigator data', data)
     if (data) {
       dispatch(setCameraImage(data.image))
     }
