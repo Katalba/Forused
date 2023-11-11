@@ -12,9 +12,10 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderColor: 'gray',
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginBottom: 10,
-    paddingLeft: 8
+    paddingLeft: 8,
+    justifyContent: 'center'
   },
   listTitle: {
     fontSize: 16,
@@ -41,7 +42,12 @@ const styles = StyleSheet.create({
   },
   addText: {
     textAlign: 'center'
+  },
+  invoiceItemImage: {
+    width: 70,
+    height: 100
   }
+
 })
 
 export default styles

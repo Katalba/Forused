@@ -6,6 +6,7 @@ import styles from './Home.style'
 import * as ImagePicker from 'expo-image-picker'
 import { setCameraImage } from '../../features/bill/billSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { usePostBillMutation } from '../../services/billApi'
 
 const Home = ({ navigation }) => {
   const image = useSelector(state => state.bill.imageCamera)
@@ -13,16 +14,22 @@ const Home = ({ navigation }) => {
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('Gastos Fijos')
   const [invoices, setInvoices] = useState([])
+  const [showDefaultImage, setShowDefaultImage] = useState(true)
+  const [triggerPost] = usePostBillMutation()
 
   const dispatch = useDispatch()
 
   const handleAddInvoice = () => {
     if (invoice && amount && category) {
-      const newInvoice = `${invoice} - $${amount} - ${category}`
+      const newInvoice = {
+        text: `${invoice} - $${amount} - ${category}`,
+        image: image || null
+      }
       setInvoices([...invoices, newInvoice])
       setInvoice('')
       setAmount('')
       setCategory('Gastos Fijos')
+      setShowDefaultImage(true)
     }
   }
 
@@ -50,8 +57,17 @@ const Home = ({ navigation }) => {
         dispatch(
           setCameraImage(`data:image/jpeg;base64,${result.assets[0].base64}`)
         )
+        setShowDefaultImage(false)
       }
     }
+  }
+
+  const resetImage = () => {
+    setShowDefaultImage(true)
+  }
+
+  const billPost = () => {
+    triggerPost(invoices)
   }
 
   return (
@@ -71,40 +87,43 @@ const Home = ({ navigation }) => {
           onChangeText={(text) => setAmount(text)}
           keyboardType='numeric'
         />
-        <Picker
-          selectedValue={category}
-          onValueChange={(itemValue) => setCategory(itemValue)}
-        >
-          <Picker.Item label='Gastos fijos' value='Gastos fijos' />
-          <Picker.Item label='Gastos imprevistos' value='Gastos imprevistos' />
-          <Picker.Item label='Gastos variables' value='Gastos variables' />
-          <Picker.Item label='Gastos por deseo' value='Gastos por deseo' />
-        </Picker>
+        <View style={styles.input}>
+          <Picker
+            selectedValue={category}
+            onValueChange={(itemValue) => setCategory(itemValue)}
+          >
+            <Picker.Item label='Gastos fijos' value='Gastos fijos' />
+            <Picker.Item label='Gastos imprevistos' value='Gastos imprevistos' />
+            <Picker.Item label='Gastos variables' value='Gastos variables' />
+            <Picker.Item label='Gastos por deseo' value='Gastos por deseo' />
+          </Picker>
+        </View>
         <Pressable style={styles.takePhoto} onPress={pickImage}>
           <View style={styles.avatarContainer}>
-            {image
+            {showDefaultImage
               ? (
-                <Image style={styles.avatar} source={{ uri: image }} />
-                )
-              : (
                 <Image
                   style={styles.avatar}
                   source={{
                     uri:
-                'https://firebasestorage.googleapis.com/v0/b/forused-742ab.appspot.com/o/factura.jpg?alt=media&token=67725763-0e7c-4bd3-9687-518e8648b0ab&_gl=1*rb2ysw*_ga*MTQ2MjEzMjM4Ny4xNjc3MjUxMTI0*_ga_CW55HF8NVT*MTY5OTQwNTg5Ni4xMDYuMS4xNjk5NDA1OTQyLjE0LjAuMA..'
+                    'https://firebasestorage.googleapis.com/v0/b/forused-742ab.appspot.com/o/factura.jpg?alt=media&token=67725763-0e7c-4bd3-9687-518e8648b0ab&_gl=1*rb2ysw*_ga*MTQ2MjEzMjM4Ny4xNjc3MjUxMTI0*_ga_CW55HF8NVT*MTY5OTQwNTg5Ni4xMDYuMS4xNjk5NDA1OTQyLjE0LjAuMA..'
                   }}
                 />
+                )
+              : (
+                <Image style={styles.avatar} source={{ uri: image }} />
                 )}
           </View>
           <Text style={styles.addText}>Adjunta tu factura si deseas</Text>
         </Pressable>
-        <Button title='Agregar Factura' onPress={handleAddInvoice} />
+        <Button title='Agregar Factura' onPress={() => { handleAddInvoice(); resetImage(); billPost() }} />
 
         <Text style={styles.listTitle}>Listado de Facturas:</Text>
         <View style={styles.invoiceList}>
           {invoices.map((item, index) => (
             <View key={index} style={styles.invoiceItemContainer}>
-              <Text style={styles.invoiceItemText}>{item}</Text>
+              <Text style={styles.invoiceItemText}>{item.text}</Text>
+              {item.image && <Image style={styles.invoiceItemImage} source={{ uri: item.image }} />}
             </View>
           ))}
         </View>
