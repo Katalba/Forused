@@ -1,10 +1,10 @@
-import { Cart } from '../screens'
+import { Bill } from '../screens'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()
 
-const CartNavigator = () => {
+const BillNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName='Home'
@@ -12,9 +12,9 @@ const CartNavigator = () => {
         headerShown: false
       })}
     >
-      <Stack.Screen name='Cart' component={Cart} />
+      <Stack.Screen name='Billch' component={Bill} />
     </Stack.Navigator>
   )
 }
 
-export default CartNavigator
+export default BillNavigator

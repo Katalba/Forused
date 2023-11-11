@@ -1,18 +1,18 @@
 import { StyleSheet, View } from 'react-native'
 
-import CartNavigator from './CartNavigator'
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
 import StackNavigator from './StackNavigator'
 import { colors } from '../constants/colors'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import ProfileNavigator from './ProfileNavigator'
+import BillNavigator from './BillNavigator'
 
 const BottomTab = createBottomTabNavigator()
 
 function BottomTabNavigator () {
   return (
     <BottomTab.Navigator
-      initialRouteName='Shop'
+      initialRouteName='Home'
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -31,23 +31,23 @@ function BottomTabNavigator () {
         }}
       />
       <BottomTab.Screen
-        name='CartNav'
+        name='Home'
         component={StackNavigator}
         options={{
           tabBarIcon: () => (
             <View style={styles.iconContainer}>
-              <SimpleLineIcons style={styles.iconos} name='plus' size={25} color='white' />
+              <SimpleLineIcons style={styles.iconos} name='home' size={25} color='white' />
             </View>
           )
         }}
       />
       <BottomTab.Screen
-        name='Shop'
-        component={CartNavigator}
+        name='Billch'
+        component={BillNavigator}
         options={{
           tabBarIcon: () => (
             <View style={styles.iconContainer}>
-              <SimpleLineIcons style={styles.iconos} name='home' size={25} color='white' />
+              <SimpleLineIcons style={styles.iconos} name='plus' size={25} color='white' />
             </View>
           )
         }}
