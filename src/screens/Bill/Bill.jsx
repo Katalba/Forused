@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View, Text, Button, TextInput, Image, Pressable } from 'react-native'
+import { SafeAreaView, View, Text, TextInput, Image, Pressable } from 'react-native'
 import { Header } from '../../components'
 import { Picker } from '@react-native-picker/picker'
 import styles from './bill.style'
@@ -7,12 +7,13 @@ import * as ImagePicker from 'expo-image-picker'
 import { setCameraImage } from '../../features/bill/billSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { usePostBillMutation } from '../../services/billApi'
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
 
 const Bill = ({ navigation }) => {
   const image = useSelector(state => state.bill.imageCamera)
   const [invoice, setInvoice] = useState('')
   const [amount, setAmount] = useState('')
-  const [category, setCategory] = useState('Gastos Fijos')
+  const [selectedCategory, setSelectedCategory] = useState('Gastos Fijos')
   const [invoices, setInvoices] = useState([])
   const [showDefaultImage, setShowDefaultImage] = useState(true)
   const [triggerPost] = usePostBillMutation()
@@ -20,15 +21,17 @@ const Bill = ({ navigation }) => {
   const dispatch = useDispatch()
 
   const handleAddInvoice = () => {
-    if (invoice && amount && category) {
+    if (invoice && amount && selectedCategory) {
       const newInvoice = {
-        text: `${invoice} - $${amount} - ${category}`,
+        concept: invoice,
+        amount,
+        category: selectedCategory,
         image: image || null
       }
       setInvoices([...invoices, newInvoice])
       setInvoice('')
       setAmount('')
-      setCategory('Gastos Fijos')
+      setSelectedCategory('Gastos Fijos')
       setShowDefaultImage(true)
     }
   }
@@ -67,36 +70,38 @@ const Bill = ({ navigation }) => {
   }
 
   const billPost = () => {
-    triggerPost(invoices)
+    triggerPost({ invoices })
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Cargar Facturas' />
+      <Header title='Carga de gastos' />
       <View style={styles.contentContainer}>
         <TextInput
           style={styles.input}
-          placeholder='Ingrese una factura'
+          placeholder='Concepto'
           value={invoice}
           onChangeText={(text) => setInvoice(text)}
         />
         <TextInput
           style={styles.input}
-          placeholder='Ingrese el monto'
+          placeholder='Monto'
           value={amount}
           onChangeText={(text) => setAmount(text)}
           keyboardType='numeric'
         />
-        <View style={styles.input}>
+        <View style={styles.inputPicker}>
           <Picker
-            selectedValue={category}
-            onValueChange={(itemValue) => setCategory(itemValue)}
+            selectedValue={selectedCategory}
+            onValueChange={(itemValue) => setSelectedCategory(itemValue)}
+            style={{ fontSize: 15 }}
           >
             <Picker.Item label='Gastos fijos' value='Gastos fijos' />
             <Picker.Item label='Gastos imprevistos' value='Gastos imprevistos' />
             <Picker.Item label='Gastos variables' value='Gastos variables' />
             <Picker.Item label='Gastos por deseo' value='Gastos por deseo' />
           </Picker>
+
         </View>
         <Pressable style={styles.takePhoto} onPress={pickImage}>
           <View style={styles.avatarContainer}>
@@ -106,7 +111,7 @@ const Bill = ({ navigation }) => {
                   style={styles.avatar}
                   source={{
                     uri:
-                    'https://firebasestorage.googleapis.com/v0/b/forused-742ab.appspot.com/o/factura.jpg?alt=media&token=67725763-0e7c-4bd3-9687-518e8648b0ab&_gl=1*rb2ysw*_ga*MTQ2MjEzMjM4Ny4xNjc3MjUxMTI0*_ga_CW55HF8NVT*MTY5OTQwNTg5Ni4xMDYuMS4xNjk5NDA1OTQyLjE0LjAuMA..'
+                    'https://firebasestorage.googleapis.com/v0/b/forused-742ab.appspot.com/o/ticket.png?alt=media&token=2a3ff48b-704c-456e-9b3a-fbb918995942'
                   }}
                 />
                 )
@@ -114,18 +119,24 @@ const Bill = ({ navigation }) => {
                 <Image style={styles.avatar} source={{ uri: image }} />
                 )}
           </View>
-          <Text style={styles.addText}>Adjunta tu factura si deseas</Text>
+          <Text style={styles.addText}><SimpleLineIcons style={styles.iconos} name='paper-clip' size={18} color='black' /> Adjunta tu ticket</Text>
         </Pressable>
-        <Button title='Agregar Factura' onPress={() => { handleAddInvoice(); resetImage(); billPost() }} />
+
+        <Pressable style={styles.touchContainer} onPress={() => { handleAddInvoice(); resetImage(); billPost() }}>
+          <Text style={styles.button}>Agregar</Text>
+        </Pressable>
 
         <Text style={styles.listTitle}>Listado de Facturas:</Text>
         <View style={styles.invoiceList}>
           {invoices.map((item, index) => (
             <View key={index} style={styles.invoiceItemContainer}>
-              <Text style={styles.invoiceItemText}>{item.text}</Text>
+              <Text style={styles.invoiceItemText}>Concepto: {item.concept}</Text>
+              <Text style={styles.invoiceItemText}>Monto: ${item.amount}</Text>
+              <Text style={styles.invoiceItemText}>Categoría: {item.category}</Text>
               {item.image && <Image style={styles.invoiceItemImage} source={{ uri: item.image }} />}
             </View>
           ))}
+
         </View>
       </View>
     </SafeAreaView>

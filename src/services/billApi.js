@@ -7,13 +7,17 @@ export const billApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: builder => ({
     getBill: builder.query({
-      query: () => 'bill.json'
+      query: ({ category }) => ({
+        url: 'bill.json',
+        method: 'GET',
+        params: { category }
+      })
     }),
     postBill: builder.mutation({
-      query: ({ ...bill }) => ({
+      query: ({ invoices }) => ({
         url: 'bill.json',
         method: 'POST',
-        body: bill
+        body: { invoices }
       })
     })
   })

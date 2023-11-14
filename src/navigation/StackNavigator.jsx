@@ -26,7 +26,7 @@ const StackNavigator = () => {
         }}
       />
       <Stack.Screen
-        name='Products'
+        name='Bill'
         component={Products}
         options={{
           headerTitleAlign: 'center',

@@ -2,17 +2,20 @@ import { Pressable, Text, Image, View } from 'react-native'
 
 import styles from './CategoryItem.style'
 import { useDispatch } from 'react-redux'
-import { setCategorySelected } from '../../../../features/shop/ShopSlice'
+import { filterBillsByCategory } from '../../../../features/bill/billSlice'
 
 const CategoryItem = ({ category, navigation, image }) => {
   const dispatch = useDispatch()
+
+  const filterBills = () => {
+    dispatch(filterBillsByCategory(category))
+    navigation.navigate('Bill', { category })
+  }
+
   return (
     <View style={styles.contentCategories}>
       <Pressable
-        onPress={() => {
-          dispatch(setCategorySelected(category))
-          navigation.navigate('Products', { category })
-        }}
+        onPress={filterBills}
         style={styles.container}
       >
         <Image source={{ uri: image }} style={styles.image} />

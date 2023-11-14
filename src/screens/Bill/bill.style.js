@@ -1,21 +1,49 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff'
+    flex: 1
+
   },
   contentContainer: {
     flex: 1,
-    padding: 16
+    padding: 20,
+    alignItems: 'center'
   },
   input: {
-    height: 40,
+    borderWidth: 1,
     borderColor: 'gray',
-    borderWidth: 0.5,
-    marginBottom: 10,
-    paddingLeft: 8,
-    justifyContent: 'center'
+    paddingStart: 30,
+    padding: 10,
+    width: '90%',
+    marginTop: 20,
+    borderRadius: 30,
+    fontSize: 15,
+    backgroundColor: '#fff'
+  },
+  inputPicker: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    width: '90%',
+    marginTop: 20,
+    borderRadius: 30,
+    backgroundColor: '#fff'
+  },
+  touchContainer: {
+    width: '30%',
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.button,
+    borderRadius: 25,
+    padding: 10,
+    marginTop: 50
+  },
+  button: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 17
   },
   listTitle: {
     fontSize: 16,
@@ -38,7 +66,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 200,
     height: 300,
-    resizeMode: 'cover'
+    resizeMode: 'contain'
   },
   addText: {
     textAlign: 'center'

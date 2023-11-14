@@ -2,35 +2,33 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   contentCategories: {
-    width: '45%',
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginHorizontal: 16,
+    marginVertical: 8,
+    width: '40%'
   },
   container: {
-    backgroundColor: '#FFFFFF',
-    marginVertical: 15,
-    borderRadius: 20,
-    overflow: 'hidden',
-    height: 150,
-    width: '98%',
     alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    fontSize: 20,
-    fontFamily: 'subtitulo',
-    color: '#fff',
-    position: 'absolute',
-    zIndex: 10,
-    letterSpacing: 3,
-    textTransform: 'uppercase'
+    borderRadius: 10,
+    backgroundColor: '#fff',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    padding: 30
   },
   image: {
-    height: 250,
-    resizeMode: 'stretch',
-    shadowColor: 'white',
-    position: 'absolute',
-    zIndex: 1
+    width: '100%',
+    height: 170,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    overflow: 'hidden',
+    resizeMode: 'contain'
+  },
+  text: {
+    marginVertical: 10,
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 })
 
