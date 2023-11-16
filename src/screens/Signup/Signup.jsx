@@ -16,7 +16,6 @@ const Signup = () => {
   const dispatch = useDispatch()
 
   const onSubmit = () => {
-    console.log(name, email, password, confirmPass)
     triggerSignUp({
       name,
       email,

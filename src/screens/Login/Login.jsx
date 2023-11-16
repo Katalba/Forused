@@ -15,13 +15,12 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('')
   const [triggerLogin] = useLoginMutation()
   const dispatch = useDispatch()
-
   const onSubmit = () => {
-    console.log(email, password)
     triggerLogin({
       email,
       password
     })
+      .unwrap()
       .then(result => {
         dispatch(setUser(result))
         insertSession({

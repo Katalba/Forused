@@ -1,4 +1,4 @@
-import { Bill, Details, Home, Products } from '../screens'
+import { Bill, Details, Home, FilteredBills } from '../screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { colors } from '../constants/colors'
 // import { Pressable } from 'react-native'
@@ -27,7 +27,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen
         name='Bill'
-        component={Products}
+        component={FilteredBills}
         options={{
           headerTitleAlign: 'center',
           headerTitleStyle: {

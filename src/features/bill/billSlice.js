@@ -1,11 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import dataCategories from '../../data/dataCategories'
 
 const initialState = {
   imageCamera: null,
-  categories: dataCategories,
-  bills: [],
-  filteredBills: null
+  filteredBills: []
 }
 
 export const billSlice = createSlice({
@@ -13,24 +10,18 @@ export const billSlice = createSlice({
   initialState,
   reducers: {
     setCameraImage: (state, action) => {
-      return {
-        ...state,
-        imageCamera: action.payload
-      }
+      state.imageCamera = action.payload
     },
+    // setBills: (state, action) => {
+    //   state.bills = action.payload
+    // },
     filterBillsByCategory: (state, action) => {
-      const category = action.payload
-      // Filtra las facturas por la categoría especificada
-      const filteredBills = state.bills.filter((bill) => bill.category === category)
-
-      return {
-        ...state,
-        filteredBills
-      }
+      const { category } = action.payload
+      state.filteredBills = state.filteredBills.filter(bill => bill.invoices.some(invoice => invoice.category === category))
     }
   }
 })
 
-export const { setCameraImage, filterBillsByCategory } = billSlice.actions
+export const { setCameraImage, setBills, filterBillsByCategory } = billSlice.actions
 
 export default billSlice.reducer

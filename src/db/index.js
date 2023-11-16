@@ -38,7 +38,10 @@ export const fetchSession = () => {
       tx.executeSql(
         'SELECT * FROM sessions',
         [],
-        (_, result) => resolve(result),
+        (_, result) => {
+          console.log(result) // Log the result here
+          resolve(result) // Resolve the promise with the result
+        },
         (_, error) => reject(error)
       )
     })
